@@ -43,7 +43,8 @@
             android:background="@drawable/bg_edit"
             android:hint="*****"
             android:padding="12dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            />
 
         <Button
             android:layout_width="match_parent"
