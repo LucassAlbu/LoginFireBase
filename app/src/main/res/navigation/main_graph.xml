@@ -9,49 +9,58 @@
         android:id="@+id/splashFragment"
         android:name="com.lucassalbu.crudappteste.ui.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_autentication"
+            app:destination="@id/autentication"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.lucassalbu.crudappteste.ui.auth.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_recoverAcountFragment"
-            app:destination="@id/recoverAcountFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.lucassalbu.crudappteste.ui.auth.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
-        <action
-            android:id="@+id/action_registerFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/recoverAcountFragment"
-        android:name="com.lucassalbu.crudappteste.ui.auth.RecoverAcountFragment"
-        android:label="fragment_recover_acount"
-        tools:layout="@layout/fragment_recover_acount" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.lucassalbu.crudappteste.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_autentication"
+            app:destination="@id/autentication"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <navigation
+        android:id="@+id/autentication"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/recoverAcountFragment"
+            android:name="com.lucassalbu.crudappteste.ui.auth.RecoverAcountFragment"
+            android:label="fragment_recover_acount"
+            tools:layout="@layout/fragment_recover_acount" />
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.lucassalbu.crudappteste.ui.auth.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login">
+            <action
+                android:id="@+id/action_loginFragment_to_registerFragment"
+                app:destination="@id/registerFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_recoverAcountFragment"
+                app:destination="@id/recoverAcountFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.lucassalbu.crudappteste.ui.auth.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register" />
+        <action
+            android:id="@+id/action_global_homeFragment2"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </navigation>
 </navigation>
