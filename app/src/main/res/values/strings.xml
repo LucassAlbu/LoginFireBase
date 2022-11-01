@@ -3,4 +3,12 @@
     <!-- Login Fragment -->
     <string name="text_email_login_fragmente">E-Mail</string>
     <string name="text_Password_login_fragmente">Senha</string>
+
+    <!-- erros FireBase Authentication-->
+
+    <string name="account_not_registered_register_fragment">Nenhuma conta encontada com este E-mail.</string>
+    <string name="invalid_email_register_fragment">Insira um e-mail válido. </string>
+    <string name="invalid_password_register_fragment">Senha inválida, tente novamente.</string>
+    <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
+    <string name="Strong_password_reister_fragment">Insira uma senha mais forte.</string>
 </resources>
