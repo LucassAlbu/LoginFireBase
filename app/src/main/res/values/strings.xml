@@ -12,4 +12,10 @@
     <string name="email_in_use_register_fragment">Este e-mail já está em uso.</string>
     <string name="Strong_password_reister_fragment">Insira uma senha mais forte, com no minimo 6 caracteres.</string>
     <string name="error_generic">Ocoreu um erro, por favor tente novamente mais tarde.</string>
+
+    <!-- new tak fragment
+    -->
+    <string name="text_title_task_fragment">Nova tarefa</string>
+
+
 </resources>
