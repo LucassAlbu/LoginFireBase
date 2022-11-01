@@ -1,6 +1,7 @@
 package com.lucassalbu.crudappteste.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.lucassalbu.crudappteste.R
 import com.lucassalbu.crudappteste.databinding.FragmentLoginBinding
+import com.lucassalbu.crudappteste.helper.FireBaseHelper
 
 
 class LoginFragment : Fragment() {
@@ -37,8 +39,9 @@ class LoginFragment : Fragment() {
 
         initClicks()
     }
-    private fun initClicks(){
-        binding.btnLogin.setOnClickListener{validadeData()}
+
+    private fun initClicks() {
+        binding.btnLogin.setOnClickListener { validadeData() }
 
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
@@ -49,6 +52,7 @@ class LoginFragment : Fragment() {
         }
 
     }
+
     private fun validadeData() {
         val email = binding.edtEmail.text.toString().trim()
         val password = binding.edtSenha.text.toString().trim()
@@ -59,7 +63,7 @@ class LoginFragment : Fragment() {
 
                 binding.progressBrar.isVisible = true
 
-                loginUser(email,password)
+                loginUser(email, password)
 
             } else {
                 Toast.makeText(requireContext(), "Informe sua senha", Toast.LENGTH_SHORT).show()
@@ -69,13 +73,18 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun loginUser(email: String, password: String){
+    private fun loginUser(email: String, password: String) {
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     findNavController().navigate(R.id.action_global_homeFragment2)
                 } else {
+                    Toast.makeText(
+                        requireContext(),
+                        FireBaseHelper.validError(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     binding.progressBrar.isVisible = false
                 }
             }

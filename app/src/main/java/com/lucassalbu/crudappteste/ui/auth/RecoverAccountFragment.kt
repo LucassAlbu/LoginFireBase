@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.lucassalbu.crudappteste.databinding.FragmentRecoverAcountBinding
+import com.lucassalbu.crudappteste.helper.FireBaseHelper
 
 
 class RecoverAcountFragment : Fragment() {
@@ -64,7 +65,11 @@ class RecoverAcountFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    Toast.makeText(requireContext(), "deu ruim", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        FireBaseHelper.validError(task.exception?.message ?: ""),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 binding.progressBrar.isVisible = false
             }
